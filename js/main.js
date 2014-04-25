@@ -40,7 +40,7 @@ EulerList.updateList = function() {
 
 EulerList.addUser = function(uname) {
 	var username = {username: uname};
-	// jQuery('#register-nickname-form input[name=username]').val("");
+	jQuery('#register-nickname-form input[name=username]').val("");
 
 	console.log(username);
 	jQuery.ajax({
