@@ -16,11 +16,12 @@ EulerList.updateList = function() {
 	jQuery.ajax({
 		url: "./scores.php",
 		accepts: "application/json;",
+
+		beforeSend: function() {
+			jQuery("#querySpinner").removeClass('hide');
+		},
 		success: function(data, status, XHR) {
-			console.log(data);
 			data.sort(EulerList.compare);
-
-
 			var rows = "";
 			for (var i = 0; i < data.length; i++) {
 				rows += "<tr>" + 
@@ -33,40 +34,50 @@ EulerList.updateList = function() {
 			}
 
 			$("#high-score-table tbody").html(rows);
+		},
+		complete: function() {
+			jQuery("#querySpinner").addClass('hide');
+		}, 
+		error: function() {
+			jQuery('#error').text("Could not load score table");
 		}
-
 	});
 };
 
 EulerList.addUser = function(uname) {
 	var username = {username: uname};
-
-	console.log(username);
 	jQuery.ajax({
 		url: "./usernames.php",
 		method: "POST",
 		data: username,
 		accepts: "application/json;",
+		beforeSend: function() {
+			jQuery("#querySpinner").removeClass('hide');
+		},
 		success: function(data, status, XHR) {
+			jQuery('#register-nickname-form input[name=username]').val('');
 			EulerList.updateList();
+		},
+		error: function() {
+			jQuery("#querySpinner").addClass('hide');
+			jQuery('#error').text("Could not find that username");
 		}
 	});
 };
 
-
-EulerList.submitUsername = function(event) {
-	event.preventDefault();	
-};
-
+EulerList.sendUsername = function() {
+	jQuery('#error').text("");
+	if (jQuery('#register-nickname-form input[name=username]').val().length > 0) {
+		EulerList.addUser(jQuery('#register-nickname-form input[name=username]').val());
+	}
+}
 
 jQuery(function() {
+	jQuery('#register-nickname-form a[name=submit_username]').on('click', EulerList.sendUsername());
 	jQuery('#register-nickname-form').on('submit', function(event) {
 		event.preventDefault();
-		EulerList.addUser(jQuery('#register-nickname-form input[name=username]').val());
+		EulerList.sendUsername();	
 	});
-	jQuery('#register-nickname-form a[name=submit_username]').on('click', function(event) {
-		event.preventDefault();
-		EulerList.addUser( jQuery('#register-nickname-form input[name=username]').val() );
-	});
+
 	EulerList.updateList();
 });

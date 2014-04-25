@@ -33,7 +33,7 @@
 			$arr = preg_split('/,/',$data, -1);
 	        if (sizeof($arr) == 5)  {
         		$table[] = createEulerScore($arr);
-	        }
+	        } 
 		}
 		header('Content-Type: application/json');
 		echo json_encode($table);

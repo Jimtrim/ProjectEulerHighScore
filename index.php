@@ -39,7 +39,10 @@
             <h5>Register username</h5>
             <form>
               <div class="row collapse">
-                <label>Input Label</label>
+                <label class="small-5 columns">Username</label>
+                <span class="small-2 columns hide" id="querySpinner"><img src="img/715.gif" width="16px" alt="spinner" /></span>
+                <span class="small-5 columns" id="error"></span>
+
                 <div class="small-10 columns">
                   <input type="text" name="username" placeholder="Username" />
                 </div>
