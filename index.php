@@ -20,7 +20,7 @@
       <div class="large-12 columns">
         <div class="panel">
           <div id="high-score">
-            <table id="high-score-table" class="large-12 columns">
+            <table id="high-score-table" class="large-12">
               <thead>
                 <tr>
                   <th>Nickname</th>

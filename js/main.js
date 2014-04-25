@@ -40,7 +40,6 @@ EulerList.updateList = function() {
 
 EulerList.addUser = function(uname) {
 	var username = {username: uname};
-	jQuery('#register-nickname-form input[name=username]').val("");
 
 	console.log(username);
 	jQuery.ajax({
@@ -51,18 +50,23 @@ EulerList.addUser = function(uname) {
 		success: function(data, status, XHR) {
 			EulerList.updateList();
 		}
-
 	});
 };
 
 
+EulerList.submitUsername = function(event) {
+	event.preventDefault();	
+};
 
 
 jQuery(function() {
-	jQuery('#register-nickname-form a[name=submit_username]').on('click', function(e) {
-		e.preventDefault();
+	jQuery('#register-nickname-form').on('submit', function(event) {
+		event.preventDefault();
 		EulerList.addUser(jQuery('#register-nickname-form input[name=username]').val());
-		console.log("You cliked it!");
-	})
+	});
+	jQuery('#register-nickname-form a[name=submit_username]').on('click', function(event) {
+		event.preventDefault();
+		EulerList.addUser( jQuery('#register-nickname-form input[name=username]').val() );
+	});
 	EulerList.updateList();
 });
