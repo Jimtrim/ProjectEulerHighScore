@@ -31,7 +31,6 @@
                 </tr>
               </thead>
               <tbody>
-                <!-- TODO: add php or js to add all known usernames-->
               </tbody>
             </table>
           </div>
