@@ -28,6 +28,7 @@
                 <th>Language of choice</th>
                 <th>Country</th>
               </tr>
+              <!-- TODO: add php or js to add all known usernames-->
             </table>
           </div>
           <div id="register-nickname-form">
@@ -36,10 +37,10 @@
               <div class="row collapse">
                 <label>Input Label</label>
                 <div class="small-10 columns">
-                  <input type="text" placeholder="Username" />
+                  <input type="text" name="username" placeholder="Username" />
                 </div>
                 <div class="small-2 columns">
-                  <a href="#" class="button postfix">Submit</a>
+                  <a href="#" class="button postfix" onClick="">Submit</a>
                 </div>
               </div>
             </form>

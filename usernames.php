@@ -1,8 +1,14 @@
 <?php
-	echo $_SERVER['REQUEST_METHOD'];
+
 	if(isset($_POST['username'])) {
-		// TODO: add user
+		//TODO: add user to dynamic resource
+	
 	} else {
-		// TODO: return all users
-	}
+		// TODO: get this from dynamic resource
+		$names = Array("Jimtrim", "ExuZ", "trololololol");
+
+		header('Content-Type: application/json');
+		echo json_encode($names);
+
+	} 
 ?>
