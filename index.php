@@ -44,7 +44,7 @@
                   <input type="text" name="username" placeholder="Username" />
                 </div>
                 <div class="small-2 columns">
-                  <a href="#" class="button postfix" onClick="">Submit</a>
+                  <a href="#" class="button postfix" name="submit_username">Submit</a>
                 </div>
               </div>
             </form>

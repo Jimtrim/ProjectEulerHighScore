@@ -27,7 +27,8 @@
 		}
 	} else { // All known users
 		$table = array();
-		foreach (getUsernames() as $value) {
+		$username_file = "./usernames.txt";
+		foreach ( getUsernames($username_file) as $value) {
 			$data = file_get_contents("http://projecteuler.net/profile/".$value.".txt", 'r');
 			$arr = preg_split('/,/',$data, -1);
 	        if (sizeof($arr) == 5)  {
