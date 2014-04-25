@@ -2,36 +2,35 @@
 
 var EulerList = EulerList || {};
 
-EulerList.updateList = function() {
-	// TODO: make username resource dynamic
-	jQuery.ajax({
-		url: "./usernames.php",
-		success: function(data, status, XHR) {
-			console.log("LOLOLOL");
-			data.forEach(function(item) {
-				EulerList.getDataForUser(item);
-			});
-			console.log("LOLOLOL");
-			console.log(data);
-		}
-	});
-}
+EulerList["scores"] = [];
 
-EulerList.getDataForUser = function(name) {
-	console.log("LOL");
+EulerList.updateList = function() {
 	jQuery.ajax({
-		url: "./scores.php?username="+name,
-		type: 'POST',
-		dataType: 'text',
+		url: "./scores	.php",
+		accepts: "application/json;",
 		success: function(data, status, XHR) {
-			console.log(name+": "+data);
-		},
+			console.log(data);
+
+			var rows = "";
+			for (var i = 0; i < data.length; i++) {
+				rows += "<tr>" + 
+					"<td>" + data[i]["username"] + "</td>" + 
+					"<td>" + data[i]["problems_solved"] + "</td>"	+
+					"<td>" + data[i]["level"] +"</td>"	+
+					"<td>" + data[i]["language"] +"</td>" +
+					"<td>" + data[i]["country"] +"</td>" +
+				"</tr>"	;			
+			}
+
+			$("#high-score-table tbody").html(rows);
+		}
+
 	});
-}
+};
 
 EulerList.addUser = function() {
 
-}
+};
 
 
 

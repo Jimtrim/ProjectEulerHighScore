@@ -6,7 +6,7 @@
     <title>Project Euler | High score</title>
     <link rel="stylesheet" href="css/foundation.css" />
     <link rel="stylesheet" href="css/main.css" />
-    <script src="js/vendor/modernizr.js"></script> 
+    <script src="js/vendor/modernizr.js"></script>
   </head>
   <body>
     
@@ -19,16 +19,20 @@
     <div class="row">
       <div class="large-12 columns">
         <div class="panel">
-          <div id="high-score-table">
-            <table class="large-12 columns">
-              <tr>
-                <th>Nickname</th>
-                <th>Problems solved</th>
-                <th>Level</th>
-                <th>Language of choice</th>
-                <th>Country</th>
-              </tr>
-              <!-- TODO: add php or js to add all known usernames-->
+          <div id="high-score">
+            <table id="high-score-table" class="large-12 columns">
+              <thead>
+                <tr>
+                  <th>Nickname</th>
+                  <th>Problems solved</th>
+                  <th>Level</th>
+                  <th>Language of choice</th>
+                  <th>Country</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- TODO: add php or js to add all known usernames-->
+              </tbody>
             </table>
           </div>
           <div id="register-nickname-form">
